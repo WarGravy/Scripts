@@ -1,0 +1,12 @@
+{
+    "Applications": 
+        [
+            {
+                "_Note":"This is an example of updating an application pool from 2.0 to 4.0.",
+                "AppPoolName" : "NewAppPool",
+                "IdentityType" : 0,
+                "DotNetVersion" : "v4.0",
+                "Pipeline": "Classic"
+            }
+        ]
+}
