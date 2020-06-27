@@ -5,10 +5,10 @@ $scriptpath = $MyInvocation.MyCommand.Path
 $dir = Split-Path $scriptpath
 Set-Location $dir
 
-Set-Location "C:\TFSGIT\Architecture\Windows"
+Set-Location "$PScriptRoot"
 Write-Host "Upddating process/shell environment PATH" -ForegroundColor Green
 #Python Alias
-$path = gci "$Env:USERPROFILE\AppData\Local\Programs\Python\" -recurse -filter 'python.exe' -ErrorAction SilentlyContinue | %{ $_.VersionInfo } | select -ExpandProperty  FileName
+$path = gci "C:\Program Files (x86)\" -recurse -filter 'python.exe' -ErrorAction SilentlyContinue | %{ $_.VersionInfo } | select -ExpandProperty  FileName
 if(Test-Path $path[0] ){
     $newPath = Split-Path -Path $path[0]
     #Add python folder to PATH HERE
@@ -24,7 +24,7 @@ if (Get-Command "pip" -errorAction SilentlyContinue)
 }
 else{
     "Downloading pip"
-    python "..\Python\get-pip.py"
+    python "get-pip/get-pip.py"
     python -m pip install --upgrade pip
 }
 
