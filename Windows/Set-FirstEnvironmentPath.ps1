@@ -26,4 +26,5 @@ If ($path -ne $null)
     [Environment]::SetEnvironmentVariable("Path", $path, $EnvironmentVariableTarget)
 }
 #GET PATH
-.\Get-EnvironmentPath.ps1 -EnvironmentVariableTarget $EnvironmentVariableTarget
+$scriptRoot = $MyInvocation.MyCommand.Path | Split-Path
+&"$scriptRoot\Get-EnvironmentPath.ps1" -EnvironmentVariableTarget $EnvironmentVariableTarget

@@ -18,7 +18,9 @@ if($logging){
 New-Alias -Name git -Value "C:\Program Files\Git\bin\git.exe"
 
 #Python Alias
-if(Test-Path "$Env:USERPROFILE\AppData\Local\Programs\Python\"){
-    ./Python/Build-PythonPipShell.ps1
+if(Test-Path "C:\Program Files (x86)\Python*")
+{
+    $dir = $MyInvocation.MyCommand.Path | Split-Path
+    &"$dir\Python\Build-PythonPipShell.ps1" --quiet --no-verbose | out-null
 }
 Set-Location c:\

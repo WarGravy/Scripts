@@ -5,10 +5,9 @@ $scriptpath = $MyInvocation.MyCommand.Path
 $dir = Split-Path $scriptpath
 Set-Location $dir
 
-Set-Location "$PScriptRoot"
 Write-Host "Upddating process/shell environment PATH" -ForegroundColor Green
 #Python Alias
-$path = gci "C:\Program Files (x86)\" -recurse -filter 'python.exe' -ErrorAction SilentlyContinue | %{ $_.VersionInfo } | select -ExpandProperty  FileName
+$path = gci "C:\Program Files (x86)\Python*" -recurse -filter 'python.exe' -ErrorAction SilentlyContinue | %{ $_.VersionInfo } | select -ExpandProperty  FileName
 if(Test-Path $path[0] ){
     $newPath = Split-Path -Path $path[0]
     #Add python folder to PATH HERE
@@ -16,7 +15,6 @@ if(Test-Path $path[0] ){
     ..\Windows\Set-FirstEnvironmentPath.ps1 -NewPaths "$newPath\Scripts"
 }
 
-Set-Location $dir
 #Install pip
 if (Get-Command "pip" -errorAction SilentlyContinue)
 {
