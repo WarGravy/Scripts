@@ -19,6 +19,6 @@ New-Alias -Name git -Value "C:\Program Files\Git\bin\git.exe"
 
 #Python Alias
 if(Test-Path "$Env:USERPROFILE\AppData\Local\Programs\Python\"){
-    ./Python/Build-PythonPipShell
+    ./Python/Build-PythonPipShell.ps1
 }
 Set-Location c:\

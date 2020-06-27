@@ -26,4 +26,4 @@ If ($path -ne $null)
     [Environment]::SetEnvironmentVariable("Path", $path, $EnvironmentVariableTarget)
 }
 #GET PATH
-.\getEnvironmentPath.ps1 -EnvironmentVariableTarget $EnvironmentVariableTarget
+.\Get-EnvironmentPath.ps1 -EnvironmentVariableTarget $EnvironmentVariableTarget

@@ -8,7 +8,7 @@ Specifies the "scope" to use when querying the Path environment variable
 not specified.
 
 .EXAMPLE
-.\Get-PathFolders.ps1
+.\Get-EnvironmentPath.ps1
 C:\Windows\system32\WindowsPowerShell\v1.0\
 C:\Windows\system32
 C:\Windows
@@ -21,7 +21,7 @@ The output from this example lists each folder in the Path environment variable
 for the current process.
 
 .EXAMPLE
-.\Get-PathFolders.ps1 User
+.\Get-EnvironmentPath.ps1 User
 C:\NotBackedUp\Public\Toolbox
 
 Description
