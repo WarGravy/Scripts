@@ -13,7 +13,7 @@ param(
     Configures IIS Site web apps to map to D drive instead of C drive, and configures a new SMBShare
  #>
 #Export web apps from IIS site
-.\exportIISWebAppsToJson.ps1 $iisSiteName
+.\Export-IISWebAppsToJson.ps1 $iisSiteName
 
 #Replace Physical Location with D drive location
 $iisSiteJson = "C:\temp\$iisSiteName.json"
@@ -29,6 +29,7 @@ if($modifyShare){
 }
 
 Write-Host "Configuring the IIS site $iisSiteName from the file $iisSiteJson";
-if($modifyIIS){
-    .\configureIISSiteFromJSON.ps1 -jsonConfigFile $iisSiteJson -iisSiteName $iisSiteName
+if($modifyIIS)
+{
+    .\Configure-IISSiteFromJSON.ps1 -jsonConfigFile $iisSiteJson -iisSiteName $iisSiteName
 }

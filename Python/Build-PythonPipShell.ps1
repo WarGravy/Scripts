@@ -12,8 +12,8 @@ $path = gci "$Env:USERPROFILE\AppData\Local\Programs\Python\" -recurse -filter '
 if(Test-Path $path[0] ){
     $newPath = Split-Path -Path $path[0]
     #Add python folder to PATH HERE
-    .\setFirstEnvironmentPath.ps1 -NewPaths "$newPath"
-    .\setFirstEnvironmentPath.ps1 -NewPaths "$newPath\Scripts"
+    ..\Windows\Set-FirstEnvironmentPath.ps1 -NewPaths "$newPath"
+    ..\Windows\Set-FirstEnvironmentPath.ps1 -NewPaths "$newPath\Scripts"
 }
 
 Set-Location $dir
